@@ -27,7 +27,6 @@ def preprocess_type1(df, industry_col, scale_col):
 
     return pd.DataFrame(monthly_wages)
 
-
 def preprocess_type2(df):
     filtered_df = df[
         df['항목'].str.contains('전체임금총액', na=False) & df['산업분류별'].str.contains('전체', na=False) & df['규모별'].str.contains(
@@ -51,13 +50,13 @@ def preprocess_type2(df):
     return melted_df[['Year', 'Month', 'Total_Wage']].dropna()
 
 
-df1 = pd.read_csv('99-01 임금.csv', encoding='utf-8', skiprows=1)
-df2 = pd.read_csv('93-98 임금.csv', encoding='utf-8', skiprows=1)
-df3 = pd.read_csv('19 임금.csv', encoding='cp949')
-df4 = pd.read_csv('15-18 임금.csv', encoding='cp949')
-df5 = pd.read_csv('11-14 임금.csv', encoding='cp949')
-df6 = pd.read_csv('08-10 임금.csv', encoding='cp949')
-df7 = pd.read_csv('02-07 임금.csv', encoding='utf-8', skiprows=1)
+df1 = pd.read_csv('hire_data_file/99-01 임금.csv', encoding='utf-8', skiprows=1)
+df2 = pd.read_csv('hire_data_file/93-98 임금.csv', encoding='utf-8', skiprows=1)
+df3 = pd.read_csv('hire_data_file/19 임금.csv', encoding='cp949')
+df4 = pd.read_csv('hire_data_file/15-18 임금.csv', encoding='cp949')
+df5 = pd.read_csv('hire_data_file/11-14 임금.csv', encoding='cp949')
+df6 = pd.read_csv('hire_data_file/08-10 임금.csv', encoding='cp949')
+df7 = pd.read_csv('hire_data_file/02-07 임금.csv', encoding='utf-8', skiprows=1)
 
 wage1 = preprocess_type1(df1, '산업별', '규모별')
 wage2 = preprocess_type1(df2, '산업별', '규모별')
