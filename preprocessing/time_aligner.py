@@ -162,6 +162,8 @@ if __name__ == '__main__':
     aligner.load_and_add_dataset('population', 'population_long.csv', 'date', 'population')
     aligner.load_and_add_dataset('unemployment_rate', 'unemployment_long.csv', 'date', 'unemployment_rate')
     aligner.load_and_add_dataset('productivity_index', 'productivity_all_long.csv', 'date', 'productivity_index')
+    aligner.load_and_add_dataset('change_qoq', 'productivity_all_long.csv', 'date', 'change_qoq')
+    aligner.load_and_add_dataset('growth_rate_qoq', 'productivity_all_long.csv', 'date', 'growth_rate_qoq')
     aligner.load_and_add_dataset('total_wage', None, 'date', 'Total_Wage', is_preprocessed=True, df=wage_df)
 
     temp_output_path = 'aligned_data.csv'
