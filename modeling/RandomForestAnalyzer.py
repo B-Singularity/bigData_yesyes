@@ -70,7 +70,7 @@ class RandomForestAnalyzer:
 if __name__ == '__main__':
     try:
         # 1. 대표님이 올려주신 최종 데이터를 불러옵니다.
-        data_filepath = "../preprocessing/final_analytical_data.csv"
+        data_filepath = "../preprocessing/final_analytical_data_featured.csv"
         clean_data = pd.read_csv(data_filepath)
 
         print(f"'{data_filepath}' 파일을 성공적으로 불러왔습니다.")
@@ -78,7 +78,17 @@ if __name__ == '__main__':
         # 2. 랜덤 포레스트 분석을 위한 설정을 정의합니다.
         config_rf = {
             'target': 'growth_rate_qoq',
-            'features': ['unemployment_rate', 'BSI_Composite', 'real_wage_growth', 'population', 'productivity_index']
+            'features': [
+                'unemployment_rate',
+                'BSI_Composite',
+                'real_wage_growth',
+                'population',
+                'productivity_index',
+                'unemployment_rate_MA3',
+                'BSI_Composite_MA3',
+                'unemployment_rate_change3',
+                'BSI_Composite_change3'
+            ]
         }
 
         # 3. 모델 클래스를 실행합니다.
