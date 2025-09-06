@@ -165,6 +165,7 @@ if __name__ == '__main__':
     aligner.load_and_add_dataset('change_qoq', 'productivity_all_long.csv', 'date', 'change_qoq')
     aligner.load_and_add_dataset('growth_rate_qoq', 'productivity_all_long.csv', 'date', 'growth_rate_qoq')
     aligner.load_and_add_dataset('total_wage', None, 'date', 'Total_Wage', is_preprocessed=True, df=wage_df)
+    aligner.load_and_add_dataset('BSI', 'BSI_long.csv', 'Date', 'BSI_Composite')
 
     temp_output_path = 'aligned_data.csv'
     final_df = aligner.process_and_save(temp_output_path)
