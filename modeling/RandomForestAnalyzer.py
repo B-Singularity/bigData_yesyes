@@ -4,6 +4,7 @@ from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 from sklearn.metrics import r2_score, accuracy_score, classification_report, confusion_matrix
 import numpy as np
 import optuna
+from imblearn.over_sampling import SMOTE
 
 
 class RandomForestAnalyzer:
@@ -51,6 +52,11 @@ class RandomForestAnalyzer:
         self.X = model_df[self.features]
         self.y = model_df[self.target]
 
+        if self.model_type == 'classifier':
+            smote = SMOTE(random_state=42)
+            self.X, self.y = smote.fit_resample(self.X, self.y)
+            print("SMOTE 적용: 클래스 불균형 해결 완료.")
+
         stratify_option = self.y if self.model_type == 'classifier' else None
         # --- 수정: 변수명을 소문자로 통일 ---
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
@@ -58,15 +64,16 @@ class RandomForestAnalyzer:
         )
         print("모델링 데이터 준비 완료.")
 
-    def hyperparameter_tuning(self, n_trials=50):
+    def hyperparameter_tuning(self, n_trials=200):
         print("\n하이퍼파라미터 튜닝을 시작합니다...")
 
         def objective(trial):
             param = {
                 'n_estimators': trial.suggest_int('n_estimators', 100, 1000),
-                'max_depth': trial.suggest_int('max_depth', 4, 32),
-                'min_samples_split': trial.suggest_int('min_samples_split', 2, 16),
-                'min_samples_leaf': trial.suggest_int('min_samples_leaf', 1, 16),
+                'max_depth': trial.suggest_int('max_depth', 4, 50),
+                'min_samples_split': trial.suggest_int('min_samples_split', 2, 20),
+                'min_samples_leaf': trial.suggest_int('min_samples_leaf', 1, 20),
+                'class_weight': 'balanced' if self.model_type == 'classifier' else None
             }
             if self.model_type == 'regressor':
                 model = RandomForestRegressor(**param, random_state=42, n_jobs=-1)
