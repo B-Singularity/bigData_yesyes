@@ -155,7 +155,7 @@ class RandomForestAnalyzer:
 
 if __name__ == '__main__':
     try:
-        data_filepath = "../preprocessing/final_analytical_data_advanced_featured.csv"
+        data_filepath = "../preprocessing/hiring/final_analytical_data_advanced_featured.csv"
         clean_data = pd.read_csv(data_filepath)
         print(f"'{data_filepath}' 파일을 성공적으로 불러왔습니다.\n")
 

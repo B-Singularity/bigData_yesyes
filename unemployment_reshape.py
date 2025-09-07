@@ -3,7 +3,7 @@ import pandas as pd
 # 처리할 원본 파일 경로
 source_file = 'hire_data_file/성_연령별_실업률_20250903155105.csv'
 # 저장할 파일 경로
-output_file = 'preprocessing/unemployment_long.csv'
+output_file = 'preprocessing/hiring/unemployment_long.csv'
 
 print(f"'{source_file}' 파일 가공을 시작합니다...")
 

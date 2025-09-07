@@ -4,7 +4,7 @@ import os
 
 # --- 설정 ---
 source_file = "hire_data_file/기업경영판단_BSI_20250905140637.csv"
-output_file = "preprocessing/BSI_long.csv"
+output_file = "preprocessing/hiring/BSI_long.csv"
 
 # --- 전처리 실행 ---
 try:

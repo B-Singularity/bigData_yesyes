@@ -99,10 +99,10 @@ def align_and_feature_engineer(base_file, cpi_file, df_bsi, df_gfcf):
 if __name__ == '__main__':
     try:
         # --- 설정 ---
-        BSI_SOURCE_FILE = '../hire_data_file/기업경영판단_BSI_20250905140637.csv'
+        BSI_SOURCE_FILE = '../../hire_data_file/기업경영판단_BSI_20250905140637.csv'
         BASE_DATA_FILE = 'aligned_data_year_month.csv'
-        CPI_SOURCE_FILE = '../hire_data_file/소비자물가지수_2020100__20250905135045_분석(전월_대비_증감률).csv'
-        GFCF_SOURCE_FILE = '../hire_data_file/경제활동별_총고정자본형성_실질__연간__20250907155231.csv'
+        CPI_SOURCE_FILE = '../../hire_data_file/소비자물가지수_2020100__20250905135045_분석(전월_대비_증감률).csv'
+        GFCF_SOURCE_FILE = '../../hire_data_file/경제활동별_총고정자본형성_실질__연간__20250907155231.csv'
         OUTPUT_FOLDER = 'preprocessing'
         FINAL_OUTPUT_FILE = os.path.join(OUTPUT_FOLDER, 'final_analytical_data_advanced_featured.csv')
 

@@ -147,7 +147,7 @@ if __name__ == '__main__':
     try:
         print("--- 1. 개별 데이터 전처리 시작 ---")
         # (BSI 전처리)
-        bsi_df_raw = pd.read_csv('../hire_data_file/기업경영판단_BSI_20250905140637.csv', header=0)
+        bsi_df_raw = pd.read_csv('../../hire_data_file/기업경영판단_BSI_20250905140637.csv', header=0)
         bsi_df_raw.rename(columns={'기업경영판단별(1)': 'Category'}, inplace=True)
         bsi_df_raw['Category'] = bsi_df_raw['Category'].str.replace('"', '').str.strip()
         bsi_long = bsi_df_raw.melt(id_vars=['Category'], var_name='Date_Raw', value_name='Value')
