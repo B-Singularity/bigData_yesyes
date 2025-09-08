@@ -7,7 +7,7 @@ processed = (
     processer
     .filter_data("계정항목별", ["정보통신업"], filename="filtered_info_comm.csv")
     .to_long(
-        id_vars=["계정항목별"], filename="info_comm_long.csv"
+        id_vars=["계정항목별"], filename="../info_comm_long.csv"
     )
     .get_data()
 )

@@ -25,11 +25,11 @@ class RandomForestAnalyzer:
         self.best_params = None
         self.X, self.y = [None] * 2
 
-    def prepare_modeling_data(self):
+    def prepare_modeling_data(self, y):
         if self.model_type == 'classifier':
             print("분류 모드: Y값 (talent_tier)을 생성합니다...")
             quantiles = self.config['tier_quantiles']
-            clean_growth = self.data['growth_rate_qoq'].dropna()
+            clean_growth = self.data[y].dropna()
             s_tier = clean_growth.quantile(quantiles['S'])
             a_tier = clean_growth.quantile(quantiles['A'])
             b_tier = clean_growth.quantile(quantiles['B'])
@@ -44,7 +44,7 @@ class RandomForestAnalyzer:
                 else:
                     return 'C'
 
-            self.data[self.target] = self.data['growth_rate_qoq'].apply(assign_talent_tier)
+            self.data[self.target] = self.data[y].apply(assign_talent_tier)
 
         model_df = self.data[self.features + [self.target]].dropna()
         model_df = model_df.replace([np.inf, -np.inf], np.nan).dropna()
@@ -198,7 +198,7 @@ if __name__ == '__main__':
                 ]
             }
             analyzer = RandomForestAnalyzer(clean_data, config)
-            analyzer.prepare_modeling_data()
+            analyzer.prepare_modeling_data('growth_rate_qoq')
 
             # --- 여기가 핵심 실행 흐름 ---
             # 1. 하이퍼파라미터 튜닝 실행
