@@ -1,5 +1,5 @@
 
-from preprocessing.hiring.time_aligner import TimeAligner
+from preprocessing.time_aligner import TimeAligner
 
 
 def main():

@@ -50,13 +50,13 @@ def preprocess_type2(df):
     return melted_df[['Year', 'Month', 'Total_Wage']].dropna()
 
 
-df1 = pd.read_csv('hire_data_file/99-01 임금.csv', encoding='utf-8', skiprows=1)
-df2 = pd.read_csv('hire_data_file/93-98 임금.csv', encoding='utf-8', skiprows=1)
-df3 = pd.read_csv('hire_data_file/19 임금.csv', encoding='cp949')
-df4 = pd.read_csv('hire_data_file/15-18 임금.csv', encoding='cp949')
-df5 = pd.read_csv('hire_data_file/11-14 임금.csv', encoding='cp949')
-df6 = pd.read_csv('hire_data_file/08-10 임금.csv', encoding='cp949')
-df7 = pd.read_csv('hire_data_file/02-07 임금.csv', encoding='utf-8', skiprows=1)
+df1 = pd.read_csv('../../hire_data_file/99-01 임금.csv', encoding='utf-8', skiprows=1)
+df2 = pd.read_csv('../../hire_data_file/93-98 임금.csv', encoding='utf-8', skiprows=1)
+df3 = pd.read_csv('../../hire_data_file/19 임금.csv', encoding='cp949')
+df4 = pd.read_csv('../../hire_data_file/15-18 임금.csv', encoding='cp949')
+df5 = pd.read_csv('../../hire_data_file/11-14 임금.csv', encoding='cp949')
+df6 = pd.read_csv('../../hire_data_file/08-10 임금.csv', encoding='cp949')
+df7 = pd.read_csv('../../hire_data_file/02-07 임금.csv', encoding='utf-8', skiprows=1)
 
 wage1 = preprocess_type1(df1, '산업별', '규모별')
 wage2 = preprocess_type1(df2, '산업별', '규모별')

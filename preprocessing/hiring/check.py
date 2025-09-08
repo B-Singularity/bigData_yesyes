@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-source_file = "hire_data_file/기업경영판단_BSI_20250905140637.csv"
+source_file = "../../hire_data_file/기업경영판단_BSI_20250905140637.csv"
 
 try:
     # header=0 옵션으로 CSV 파일을 정확히 읽습니다.

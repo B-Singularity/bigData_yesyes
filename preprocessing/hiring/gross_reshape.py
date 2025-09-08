@@ -1,7 +1,7 @@
 import pandas as pd
 
-source_file = 'hire_data_file/경제활동별_총고정자본형성_실질__연간__20250907155231.csv'
-output_file = 'preprocessing/hiring/GFCF_ICT_Real_long.csv'
+source_file = '../../hire_data_file/경제활동별_총고정자본형성_실질__연간__20250907155231.csv'
+output_file = 'GFCF_ICT_Real_long.csv'
 
 try:
     # 2. CSV 파일을 읽어옵니다. (header=0 옵션으로 첫 줄을 제목으로 지정)

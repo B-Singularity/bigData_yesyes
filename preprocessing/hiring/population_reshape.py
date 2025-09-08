@@ -1,8 +1,8 @@
 import pandas as pd
 
 # --- 설정 ---
-source_file = 'hire_data_file/성_및_연령별_추계인구_1세별__5세별____전국_20250903135125.csv'
-output_file = 'preprocessing/hiring/population_long.csv'
+source_file = '../../hire_data_file/성_및_연령별_추계인구_1세별__5세별____전국_20250903135125.csv'
+output_file = 'population_long.csv'
 
 # 더해야 할 '생산가능인구' 연령대 목록 (파일에 있는 이름과 정확히 일치해야 함)
 TARGET_AGE_GROUPS = [
