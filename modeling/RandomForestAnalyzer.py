@@ -52,16 +52,18 @@ class RandomForestAnalyzer:
         self.X = model_df[self.features]
         self.y = model_df[self.target]
 
-        if self.model_type == 'classifier':
-            smote = SMOTE(random_state=42)
-            self.X, self.y = smote.fit_resample(self.X, self.y)
-            print("SMOTE 적용: 클래스 불균형 해결 완료.")
 
         stratify_option = self.y if self.model_type == 'classifier' else None
         # --- 수정: 변수명을 소문자로 통일 ---
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
             self.X, self.y, test_size=0.3, random_state=42, stratify=stratify_option
         )
+
+        if self.model_type == 'classifier':
+            smote = SMOTE(random_state=42)
+            self.X_train, self.y_train = smote.fit_resample(self.X_train, self.y_train)
+            print("SMOTE 적용: 학습용 데이터 클래스 불균형 해결 완료.")
+
         print("모델링 데이터 준비 완료.")
 
     def hyperparameter_tuning(self, n_trials=200):

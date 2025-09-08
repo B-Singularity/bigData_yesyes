@@ -7,6 +7,7 @@ if __name__ == '__main__':
         data_filepath = "../preprocessing/investing/merged_data_with_gdp (1).csv"
         clean_data = pd.read_csv(data_filepath)
         features = clean_data.columns.tolist()
+        print(features[-1])
         print(f"'{data_filepath}' 파일을 성공적으로 불러왔습니다.\n")
 
         # --- 분석 모드 선택 ---
