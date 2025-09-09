@@ -2,7 +2,7 @@ import pandas as pd
 
 # --- 설정 ---
 source_file = '노동생산성지수_부가가치기준__20250904095634_분석(전분기_대비_증감,증감률).csv'
-output_file = 'productivity_all_long.csv'
+output_file = '../project/productivity_all_long.csv'
 
 # 필터링할 산업 이름 (파일에 있는 '비농전산업'이 사실상 전산업을 의미)
 TARGET_INDUSTRY = '비농전산업'
